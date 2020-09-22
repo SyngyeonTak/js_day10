@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "../js/lib.js"></script>
+    <script>
+        var arr = new Array(10);
+        arr[0] = "김치찌개";
+        arr[1] = "냉면";
+        arr[2] = "순댓국";
+        arr[3] = "감자탕";
+        arr[4] = "돈까스";
+        arr[5] = "햄버거";
+        arr[6] = "피자";
+        arr[7] = "메밀소바";
+        arr[8] = "분식";
+        arr[9] = "마라탕";
+
+        var h;
+        var lunch;
+        
+        function getLunch(){
+            lunch = arr[getRandom(9)];
+            h = document.querySelector("h2");
+            h.innerText = lunch + " 먹어라";
+        }
+    </script>
+</head>
+<body>
+    <button onclick = "getLunch()">뭐 먹을까</button>
+    <h2>뭐 먹을까</h2>
+</body>
+</html>

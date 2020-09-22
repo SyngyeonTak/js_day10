@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* body{background: black;} */
+        #wrapper{
+            width: 400px;
+            height: 75px;
+            background: white;
+            border: 5px solid black;
+            position: relative;
+            box-Sizing: border-box;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        img{
+            width: 100px;
+            height: 70px;
+
+            border: 2px solid yellow;
+            box-Sizing: border-box;
+        }
+        
+    </style>
+    <script>
+        var wrapper;
+        var img = new Array(5);
+
+        function init(){
+            wrapper = document.getElementById("wrapper");
+            //이미지 5개를 동적으로 생성하여 wrapper에 추가!!
+            for(var i = 0; i<img.length; i++){
+                img[i] = document.createElement("img");
+                img[i].src = "../img/travel/"+(i+1)+".jpg";
+                
+                img[i].style.position = "absolute";
+                img[i].style.left = i*100 +"px";
+
+                img[i].innerText = img[i].style.left;
+                
+                wrapper.appendChild(img[i]);
+            }
+        }
+
+        function move(){
+            for(var i = 0; i<img.length; i++){
+                img[i].style.left = parseInt(img[i].style.left)-10+"px";
+                if(parseInt(img[i].style.left) == -100){
+                   img[i].style.left = 400 + "px";
+                }
+            }
+        }
+        
+        window.addEventListener("load", function(){
+            init();
+        });
+
+    </script>
+</head>
+<body>
+    <div id = "wrapper">
+    </div>
+    <button onclick = "move()">수동움직임</button>
+    <button onclick = "setInterval('move()', 70)">자동움직임</button>
+</body>
+
+</html>
